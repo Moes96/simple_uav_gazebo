@@ -13,6 +13,8 @@
     <arg name="vehicle" default="drone_velodyne"/>
     <arg name="world" default="$(find simple_uav_gazebo)/worlds/mine.world"/> -->
     <arg name="sdf" default="$(find simple_uav_gazebo)/models/$(arg vehicle)/model.sdf"/>
+    <!-- transformer.py launch-->
+    <node pkg="simulation" type="transformer.py" name="transformer" output="screen" />
     <!-- gazebo configs -->
     <arg name="gui" default="true"/>
     <arg name="debug" default="false"/>

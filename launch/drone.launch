@@ -15,8 +15,8 @@
     <arg name="sdf" default="$(find simple_uav_gazebo)/models/$(arg vehicle)/model.sdf"/>
     <!-- gazebo configs -->
     <arg name="gui" default="true"/>
-    <arg name="debug" default="false"/>
-    <arg name="verbose" default="false"/>
+    <arg name="debug" default="true"/>
+    <arg name="verbose" default="true"/>
     <arg name="paused" default="false"/>
     <arg name="respawn_gazebo" default="false"/>
     <!-- Gazebo sim -->

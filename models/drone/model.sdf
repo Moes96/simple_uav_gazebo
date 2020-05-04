@@ -121,7 +121,7 @@
             <visual name='visual'>
                 <geometry>
                     <mesh>
-                        <uri>model://drone/meshes/elica.obj</uri>
+                        <uri>model://drone/meshes/elica.dae</uri>
                         <scale>0.025 0.025 0.025</scale>
                     </mesh>
                 </geometry>
@@ -152,7 +152,7 @@
             <visual name='visual'>
                 <geometry>
                     <mesh>
-                        <uri>model://drone/meshes/elica.obj</uri>
+                        <uri>model://drone/meshes/elica.dae</uri>
                         <scale>0.025 0.025 0.025</scale>
                     </mesh>
                 </geometry>
@@ -196,10 +196,7 @@
             </axis>
         </joint>
 
-        <!-- Plugin space
-        <plugin name="upforce" filename="libUpForce.so">
-            <final_position>10 10 10</final_position>
-        </plugin>
-        <plugin name="DroneCS" filename="libDroneCS2.so"/>-->
+        <!-- Plugin space -->
+        <plugin name="simple_moviment" filename="lib_simpleMoviment.so"/>
     </model>
 </sdf>

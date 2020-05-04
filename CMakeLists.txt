@@ -10,6 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   roscpp
   std_msgs
+  geometry_msgs
   gazebo_ros
 )
 
@@ -125,8 +126,8 @@ include_directories(
 )
 
 ## Declare a C++ library
-add_library( _simpleMoviment
-   src/moviment.cpp
+add_library( _simple_moviment
+   src/simple_movement.cpp
 )
 
 ## Add cmake target dependencies of the library
@@ -137,7 +138,8 @@ add_library( _simpleMoviment
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/simple_uav_gazebo_node.cpp)
+add_executable(${PROJECT_NAME}_test1 src/test1.cpp)
+target_link_libraries(${PROJECT_NAME}_test1 ${catkin_LIBRARIES})
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the

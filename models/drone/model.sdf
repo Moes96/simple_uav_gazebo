@@ -197,6 +197,7 @@
         </joint>
 
         <!-- Plugin space -->
-        <plugin name="simple_movement" filename="lib_simpleMovement.so"/>
+        <plugin name="simple_movement" filename="lib_simple_movement.so"/>
+
     </model>
 </sdf>

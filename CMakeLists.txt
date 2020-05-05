@@ -126,13 +126,8 @@ include_directories(
 )
 
 ## Declare a C++ library
-<<<<<<< HEAD
-add_library( _simpleMovement
-   src/movement.cpp
-=======
-add_library( _simple_moviment
+add_library( _simple_movement
    src/simple_movement.cpp
->>>>>>> develop_matteo
 )
 
 ## Add cmake target dependencies of the library

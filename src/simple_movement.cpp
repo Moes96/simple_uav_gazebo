@@ -9,7 +9,7 @@
 
 namespace gazebo
 {
-    class BasicMoviment : public ModelPlugin
+    class BasicMovement : public ModelPlugin
     {
         ignition::math::Pose3<double> actual_position;
         // geometry_msgs::PoseStamped actual_goal;
@@ -50,10 +50,10 @@ namespace gazebo
             // Listen to the update event. This event is broadcast every
             // simulation iteration.
             this->updateConnection = event::Events::ConnectWorldUpdateBegin(
-                std::bind(&BasicMoviment::OnUpdate, this));
+                std::bind(&BasicMovement::OnUpdate, this));
 
             ros::NodeHandle n;
-            sub = n.subscribe("/set_position", 1000, &BasicMoviment::subCallback, this);
+            sub = n.subscribe("/set_position", 1000, &BasicMovement::subCallback, this);
         }
         // Called by the world update start event
         void OnUpdate()
@@ -86,5 +86,5 @@ namespace gazebo
     };
 
     // Register this plugin with the simulator
-    GZ_REGISTER_MODEL_PLUGIN(BasicMoviment)
+    GZ_REGISTER_MODEL_PLUGIN(BasicMovement)
 } // namespace gazebo

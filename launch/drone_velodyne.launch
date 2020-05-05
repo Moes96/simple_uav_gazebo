@@ -11,10 +11,8 @@
     <arg name="Y" default="0"/>
     <!-- vehicle model and world -->
     <arg name="vehicle" default="drone_velodyne"/>
-    <arg name="world" default="$(find simple_uav_gazebo)/worlds/mine.world"/> -->
+    <arg name="world" default="$(find simple_uav_gazebo)/worlds/mine.world"/>
     <arg name="sdf" default="$(find simple_uav_gazebo)/models/$(arg vehicle)/model.sdf"/>
-    <!-- transformer.py launch-->
-    <node pkg="simulation" type="transformer.py" name="transformer" output="screen" />
     <!-- gazebo configs -->
     <arg name="gui" default="true"/>
     <arg name="debug" default="false"/>
@@ -32,4 +30,7 @@
     </include>
     <!-- gazebo model -->
     <node name="$(anon vehicle_spawn)" pkg="gazebo_ros" type="spawn_model" output="screen" args="-sdf -file $(arg sdf) -model $(arg vehicle) -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg R) -P $(arg P) -Y $(arg Y)"/>
+    <!-- frames and transformer launch -->
+    <node pkg="tf" type="static_transform_publisher" name="map_broadcaster" args="0 0 0 0 0 0 1 map base_link 100" />
+    <node pkg="simple_uav_gazebo" type="transformer.py" name="transformer" output="screen" />
 </launch>

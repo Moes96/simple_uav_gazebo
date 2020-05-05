@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
 <sdf version='1.6'>
-    <model name="drone">
-        <static>false</static>
-        <!--Base of the drone-->
-        <link name='drone_base'>
+    <model name='drone'>
+        <link name='base_link'>
+        <pose frame=''>0.000013 0.000013 0.3 0 -0 0</pose>
         <inertial>
-            <pose> 0.000013 0.000013 -0.0383399</pose>
+            <!-- <pose> 0.000013 0.000013 -0.0383399</pose> -->
             <mass> 1.5 </mass>
             <inertia>
                 <ixx>0.0347563</ixx>
@@ -16,15 +15,17 @@
                 <izz>0.0977</izz>
             </inertia>
         </inertial>
-            <pose>0 0 0.3 0 -0 0</pose>
-            <collision name='collision'>
+            <!-- <pose>0 0 0.3 0 -0 0</pose> -->
+            <collision name='base_link_inertia_collision'>
+                <pose frame=''>0 0 0 0 -0 0</pose>
                 <geometry>
                     <box>
-                        <size>.3 .3 .1</size>
+                        <size>0.3 0.3 0.1</size>
                     </box>
                 </geometry>
             </collision>
-            <visual name='visual'>
+            <visual name='base_link_inertia_visual'>
+                <pose frame=''>0 0 0 0 -0 0</pose>
                 <geometry>
                     <mesh>
                         <uri>model://drone/meshes/drone_base.dae</uri>
@@ -35,8 +36,8 @@
         </link>
         <!-- Propellers -->
         <link name='elica_north'>
-	<inertial>
-            <pose> 0.000013 0.000013 -0.0383399</pose>
+        <pose frame=''>0.116 0.116 0.3 0 -0 0</pose>
+	    <inertial>
             <mass> 0.005 </mass>
             <inertia>
                 <ixx>9.75e-07</ixx>
@@ -47,16 +48,17 @@
                 <izz>0.000274004</izz>
             </inertia>
         </inertial>
-            <pose>.116 .116 0.3</pose>
-            <collision name='collision'>
+            <collision name='elica_north_collision'>
+            <pose frame=''>0 0 0 0 -0 0</pose>
                 <geometry>
                     <cylinder>
-              		<radius>.1</radius>
-              		<length>.05</length>
-            	</cylinder>
+              		    <radius>.1</radius>
+              		    <length>.05</length>
+            	    </cylinder>
                 </geometry>
             </collision>
-            <visual name='visual'>
+            <visual name='elica_north_visual'>
+            <pose frame=''>0 0 0 0 -0 0</pose>
                 <geometry>
                     <mesh>
                         <uri>model://drone/meshes/elica.obj</uri>
@@ -66,8 +68,8 @@
             </visual>
         </link>
         <link name='elica_south'>
-	<inertial>
-            <pose> 0.000013 0.000013 -0.0383399</pose>
+        <pose frame=''>-0.116 -0.116 0.3 0 -0 0</pose>
+	    <inertial>
             <mass> 0.005 </mass>
             <inertia>
                 <ixx>9.75e-07</ixx>
@@ -78,16 +80,17 @@
                 <izz>0.000274004</izz>
             </inertia>
         </inertial>
-            <pose>-.116 -.116 0.3</pose>
-            <collision name='collision'>
+            <collision name='elica_south_collision'>
+            <pose frame=''>0 0 0 0 -0 0</pose>
                 <geometry>
                     <cylinder>
-              <radius>.1</radius>
-              <length>.05</length>
-            </cylinder>
+                        <radius>.1</radius>
+                        <length>.05</length>
+                    </cylinder>
                 </geometry>
             </collision>
-            <visual name='visual'>
+            <visual name='elica_south_visual'>
+            <pose frame=''>0 0 0 0 -0 0</pose>
                 <geometry>
                     <mesh>
                         <uri>model://drone/meshes/elica.obj</uri>
@@ -97,8 +100,8 @@
             </visual>
         </link>
         <link name='elica_east'>
-	<inertial>
-            <pose> 0.000013 0.000013 -0.0383399</pose>
+        <pose frame=''>0.116 -0.116 0.3 0 -0 0</pose>
+	    <inertial>
             <mass> 0.005 </mass>
             <inertia>
                 <ixx>9.75e-07</ixx>
@@ -109,16 +112,17 @@
                 <izz>0.000274004</izz>
             </inertia>
         </inertial>
-            <pose>.116 -.116 0.3</pose>
-            <collision name='collision'>
+            <collision name='elica_east_collision'>
+            <pose frame=''>0 0 0 0 -0 0</pose>
                 <geometry>
                     <cylinder>
-              <radius>.1</radius>
-              <length>.05</length>
-            </cylinder>
+                        <radius>.1</radius>
+                        <length>.05</length>
+                    </cylinder>
                 </geometry>
             </collision>
-            <visual name='visual'>
+            <visual name='elica_east_visual'>
+            <pose frame=''>0 0 0 0 -0 0</pose>
                 <geometry>
                     <mesh>
                         <uri>model://drone/meshes/elica.obj</uri>
@@ -128,8 +132,8 @@
             </visual>
         </link>
         <link name='elica_west'>
-	<inertial>
-            <pose> 0.000013 0.000013 -0.0383399</pose>
+        <pose frame=''>-0.116 0.116 0.3 0 -0 0</pose>
+	    <inertial>
             <mass> 0.005 </mass>
             <inertia>
                 <ixx>9.75e-07</ixx>
@@ -140,16 +144,17 @@
                 <izz>0.000274004</izz>
             </inertia>
         </inertial>
-            <pose>-.116 .116 0.3</pose>
-            <collision name='collision'>
+            <collision name='elica_west_collision'>
+            <pose frame=''>0 0 0 0 -0 0</pose>
                 <geometry>
                     <cylinder>
-              <radius>.1</radius>
-              <length>.05</length>
-            </cylinder>
+                        <radius>.1</radius>
+                        <length>.05</length>
+                    </cylinder>
                 </geometry>
             </collision>
-            <visual name='visual'>
+            <visual name='elica_west_visual'>
+            <pose frame=''>0 0 0 0 -0 0</pose>
                 <geometry>
                     <mesh>
                         <uri>model://drone/meshes/elica.obj</uri>
@@ -161,66 +166,61 @@
 
         <!--joints for the propellers-->
         <joint type="revolute" name="north_blade_hinge">
-            <pose>0 0 0</pose>
             <child>elica_north</child>
-            <parent>drone_base</parent>
+            <parent>base_link</parent>
             <axis>
                 <xyz>0 0 1</xyz>
+                <use_parent_model_frame>1</use_parent_model_frame>
             </axis>
         </joint>
 
         <joint type="revolute" name="south_blade_hinge">
-            <pose>0 0 0</pose>
             <child>elica_south</child>
-            <parent>drone_base</parent>
+            <parent>base_link</parent>
             <axis>
                 <xyz>0 0 1</xyz>
+                <use_parent_model_frame>1</use_parent_model_frame>
             </axis>
         </joint>
 
         <joint type="revolute" name="east_blade_hinge">
-            <pose>0 0 0</pose>
             <child>elica_east</child>
-            <parent>drone_base</parent>
+            <parent>base_link</parent>
             <axis>
                 <xyz>0 0 1</xyz>
+                <use_parent_model_frame>1</use_parent_model_frame>
             </axis>
         </joint>
 
         <joint type="revolute" name="west_blade_hinge">
-            <pose>0 0 0</pose>
             <child>elica_west</child>
-            <parent>drone_base</parent>
+            <parent>base_link</parent>
             <axis>
                 <xyz>0 0 1</xyz>
+                <use_parent_model_frame>1</use_parent_model_frame>
             </axis>
         </joint>
 
-        <!-- Plugin space
-        <plugin name="upforce" filename="libUpForce.so">
-            <final_position>10 10 10</final_position>
-        </plugin>
-        <plugin name="DroneCS" filename="libDroneCS2.so"/>-->
-
+        <!-- Plugin space -->
 	
-	<!-- Servo and Velodyne plugins -->
-	<include>
-      		<uri>model://servo_ax12a</uri>
-      		<pose>0.09 0.00 0.335 0 0 1.58</pose>
-    	</include>
-    	<joint name='servo_ax12a_joint' type='fixed'>
-		  <child>servo_ax12a::Body</child>
-		  <parent>drone_base</parent>
-    	</joint>
-    
+	    <!-- Servo and Velodyne plugins -->
+        <include>
+            <uri>model://servo_ax12a</uri>
+            <pose>0.09 0.00 0.335 0 0 1.58</pose>
+        </include>
+        <joint name='servo_ax12a_joint' type='fixed'>
+            <child>servo_ax12a::Body</child>
+            <parent>base_link</parent>
+        </joint>
+        
 
-	<include>
-		 <uri>model://VLP-16</uri>
-		 <pose>0.175 0.00 0.3485 0 -0 0</pose>  <!-- 0.16 0 0.08 0 0 0 -->
-	</include>
-	<joint name='vlp16_joint' type='fixed'>
-		 <child>VLP-16::velodyne_base_link</child>
-		 <parent>servo_ax12a::Wheel</parent>
-    	</joint>
+        <include>
+            <uri>model://VLP-16</uri>
+            <pose>0.175 0.00 0.3485 0 -0 0</pose>  <!-- 0.16 0 0.08 0 0 0 -->
+        </include>
+        <joint name='vlp16_joint' type='fixed'>
+            <child>VLP-16::velodyne_base_link</child>
+            <parent>servo_ax12a::Wheel</parent>
+        </joint>
     </model>
 </sdf>

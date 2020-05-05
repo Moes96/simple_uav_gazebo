@@ -125,8 +125,8 @@ include_directories(
 )
 
 ## Declare a C++ library
-add_library( _simpleMoviment
-   src/moviment.cpp
+add_library( _simpleMovement
+   src/movement.cpp
 )
 
 ## Add cmake target dependencies of the library

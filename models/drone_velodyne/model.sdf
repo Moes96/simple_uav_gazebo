@@ -202,8 +202,11 @@
         </joint>
 
         <!-- Plugin space -->
-	
-	    <!-- Servo and Velodyne plugins -->
+        
+        <!-- movement for the drone-->
+        <!-- <plugin name="simple_movement" filename="lib_simpleMovement.so"/> -->
+	    
+        <!-- Servo and Velodyne plugins -->
         <include>
             <uri>model://servo_ax12a</uri>
             <pose>0.09 0.00 0.335 0 0 1.58</pose>

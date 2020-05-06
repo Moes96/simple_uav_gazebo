@@ -17,6 +17,7 @@ namespace gazebo
         ignition::math::Pose3<double> pose;
         std::string name;
         ros::Subscriber sub; //Subscriber for the topic
+        ros::Publisher pub;
 
     public:
         void subCallback(const geometry_msgs::PoseStamped::ConstPtr &msg)
@@ -54,11 +55,27 @@ namespace gazebo
 
             ros::NodeHandle n;
             sub = n.subscribe("/set_position", 1, &BasicMovement::subCallback, this);
+
+            ros::Rate loop_rate(10);
+            pub = n.advertise<geometry_msgs::PoseStamped>("/local_position/pose",100);
         }
         // Called by the world update start event
         void OnUpdate()
         {
             actual_position = this->model->WorldPose();
+
+            geometry_msgs::PoseStamped msg;
+            msg.pose.position.x = actual_position.Pos().X();
+            msg.pose.position.y = actual_position.Pos().Y();
+            msg.pose.position.z = actual_position.Pos().Z();
+            msg.pose.orientation.w = actual_position.Rot().W();
+            msg.pose.orientation.x = actual_position.Rot().X();
+            msg.pose.orientation.y = actual_position.Rot().Y();
+            msg.pose.orientation.z = actual_position.Rot().Z();
+
+            pub.publish(msg);
+
+
             if (actual_position.Pos().Distance(actual_goal.Pos()) > 0.001)
             {
                 pose = this->model->WorldPose();

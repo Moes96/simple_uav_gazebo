@@ -11,7 +11,9 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
   geometry_msgs
+  gazebo_msgs
   gazebo_ros
+  tf
 )
 
 ## System dependencies are found with CMake's conventions
@@ -140,6 +142,9 @@ add_library( _simple_movement
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(${PROJECT_NAME}_test1 src/test1.cpp)
 target_link_libraries(${PROJECT_NAME}_test1 ${catkin_LIBRARIES})
+
+add_executable(transformer_map_node src/transformer_map.cpp)
+target_link_libraries(transformer_map_node ${catkin_LIBRARIES})
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the

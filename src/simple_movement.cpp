@@ -53,7 +53,7 @@ namespace gazebo
                 std::bind(&BasicMovement::OnUpdate, this));
 
             ros::NodeHandle n;
-            sub = n.subscribe("/set_position", 1000, &BasicMovement::subCallback, this);
+            sub = n.subscribe("/set_position", 1, &BasicMovement::subCallback, this);
         }
         // Called by the world update start event
         void OnUpdate()

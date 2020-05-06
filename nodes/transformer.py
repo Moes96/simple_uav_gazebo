@@ -21,7 +21,7 @@ def main():
   t = transformer()
 
   br = tf.TransformBroadcaster()
-  # rate = rospy.Rate(10.0)
+  rate = rospy.Rate(10.0)
 
   while not rospy.is_shutdown():
     #t = rospy.Time.now().to_sec() * math.pi
@@ -30,7 +30,7 @@ def main():
     quaternion = tf.transformations.quaternion_from_euler(t.angle, 0, 0, 'sxyz')
     #rospy.loginfo(quaternion)
     br.sendTransform((0.175, 0.0, 0.0485),quaternion,rospy.Time.now(),"velodyne_base","base_link")
-    # rate.sleep()
+    rate.sleep()
 
 
 if __name__ == '__main__':

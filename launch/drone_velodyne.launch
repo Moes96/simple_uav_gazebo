@@ -1,5 +1,13 @@
 <?xml version="1.0"?>
 <launch>
+
+    <!-- gazebo configs -->
+    <arg name="gui" default="true"/>
+    <arg name="debug" default="false"/>
+    <arg name="verbose" default="false"/>
+    <arg name="paused" default="false"/>
+    <arg name="respawn_gazebo" default="false"/>
+
     <!-- vehicle pose -->
     <arg name="x" default="-5"/>
     <arg name="y" default="3"/>
@@ -11,12 +19,7 @@
     <arg name="vehicle" default="drone_velodyne"/>
     <arg name="world" default="$(find simple_uav_gazebo)/worlds/mine.world"/>
     <arg name="sdf" default="$(find simple_uav_gazebo)/models/$(arg vehicle)/model.sdf"/>
-    <!-- gazebo configs -->
-    <arg name="gui" default="true"/>
-    <arg name="debug" default="false"/>
-    <arg name="verbose" default="false"/>
-    <arg name="paused" default="false"/>
-    <arg name="respawn_gazebo" default="false"/>
+
     <!-- Gazebo sim -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch"> 
         <arg name="gui" value="$(arg gui)"/>
@@ -31,7 +34,7 @@
     <!-- frames and transformer launch -->
     <!-- <node pkg="tf" type="static_transform_publisher" name="map_broadcaster" args="0 0 0 0 0 0 1 map base_link 100" /> -->
     <node pkg="simple_uav_gazebo" type="transformer_map_node" name="transformer_map" output="screen" />
-    <node pkg="simple_uav_gazebo" type="transformer.py" name="transformer" output="screen" />
-    <include file="$(find rl_aep)/launch/octomap_server.launch"/>
+
+    <!-- <include file="$(find simple_uav_gazebo)/launch/octomap_server_velodyne.launch"/> -->
     
 </launch>

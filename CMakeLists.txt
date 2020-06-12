@@ -124,12 +124,6 @@ include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
   ${GAZEBO_INCLUDE_DIRS}
-
-)
-
-## Declare a C++ library
-add_library( _simple_movement
-   src/simple_movement.cpp
 )
 
 ## Add cmake target dependencies of the library
@@ -140,11 +134,6 @@ add_library( _simple_movement
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(${PROJECT_NAME}_test1 src/test1.cpp)
-target_link_libraries(${PROJECT_NAME}_test1 ${catkin_LIBRARIES})
-
-add_executable(transformer_map_node src/transformer_map.cpp)
-target_link_libraries(transformer_map_node ${catkin_LIBRARIES})
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
